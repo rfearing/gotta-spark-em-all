@@ -12,7 +12,7 @@ const Pagination = ({
         <button
           type="button"
           className="page-link"
-          onClick={(ev) => previous && handlePagination(previous)}
+          onClick={() => previous && handlePagination(previous)}
         >
           Previous
         </button>
@@ -21,7 +21,7 @@ const Pagination = ({
         <button
           type="button"
           className="page-link"
-          onClick={(ev) =>  next && handlePagination(next)}
+          onClick={() => next && handlePagination(next)}
         >
           Next
         </button>

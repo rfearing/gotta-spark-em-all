@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Header from 'COMPONENTS/Header';
 import Footer from 'COMPONENTS/Footer';
 import ResultsList from 'COMPONENTS/ResultsList';
@@ -30,15 +31,7 @@ const Home = ({
       setError(e)
       setLoading(false);
     }
-  }
-
-  if (loading) {
-    content = (
-      <div className="spinner-border" role="status">
-        <span className="sr-only">Loading...</span>
-      </div>
-    );
-  }
+  };
 
   let content = (
     <>
@@ -55,6 +48,14 @@ const Home = ({
     </>
   );
 
+  if (loading) {
+    content = (
+      <div className="spinner-border" role="status">
+        <span className="sr-only">Loading...</span>
+      </div>
+    );
+  }
+
   return (
     <>
       <Header />
@@ -66,14 +67,28 @@ const Home = ({
   );
 };
 
-Home.getInitialProps = async ({ req }) => {
+Home.getInitialProps = async () => {
   const response = await getPokemon();
   return {
     pokemon: response.results || [],
     count: response.count || 0,
     next: response.next || '',
     previous: response.previous || '',
-  }
-}
+  };
+};
+
+Home.propTypes = {
+  pokemon: PropTypes.arrayOf(PropTypes.object),
+  count: PropTypes.number,
+  next: PropTypes.string,
+  previous: PropTypes.string,
+};
+
+Home.defaultProps = {
+  pokemon: [],
+  count: 0,
+  next: '',
+  previous: '',
+};
 
 export default Home;
