@@ -1,0 +1,24 @@
+{
+  "name": "gotta-spark-em-all",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "next dev",
+    "build": "next build",
+    "production": "next start"
+  },
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-sass": "^1.0.1",
+    "classnames": "^2.2.6",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.18.2",
+    "next": "9.1.1",
+    "node-sass": "^4.13.0",
+    "prop-types": "^15.7.2",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
+    "react-icons": "^3.8.0",
+    "sass-resources-loader": "^2.0.1"
+  }
+}
