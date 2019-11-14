@@ -6,7 +6,10 @@
         "base/*"
       ],
       "COMPONENTS/*": [
-        "features/*"
+        "components/*"
+      ],
+      "ACTIONS/*": [
+        "actions/*"
       ]
     }
   },

@@ -1,31 +1,40 @@
 :global {
-    body,
-    html {
-        min-height: 100%;
-    }
-    
-    p,
-    h1,
-    h2,
-    h3,
-    h4,
-    li,
-    input,
-    textarea,
-    button {
-        -webkit-font-smoothing: antialiased;
-    }
-}
+  body,
+  html { min-height: 100%; }
 
-.headerTitle {
-    font-size: 1.5rem;
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  li,
+  input,
+  textarea,
+  button {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1 { color: $header_color; }
+
+  h2,
+  h3 { color: $subhead_color; }
+
+  p,
+  li,
+  h4,
+  h5,
+  input,
+  textarea { color: $text_color; }
+
+  a { color: $link_color }
+
 }
 
 .pageHeader,
 .pageFooter {
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 .pageBody {
-    flex-grow: 1;
+  flex-grow: 1;
 }
