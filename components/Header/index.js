@@ -6,7 +6,11 @@ import css from 'BASE/scss/base.scss';
 export default () => (
   <header className={`bg-light ${css.pageHeader}`}>
     <div className="container py-3">
-      LOGO COMING SOONG
+      <img
+        alt="Modified Sparkbox Logo for the project"
+        src="/pokebox.png"
+        height="40"
+      />
     </div>
   </header>
 );

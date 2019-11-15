@@ -19,6 +19,7 @@
 .DS_Store
 .env*
 *.code-workspace
+/.vscode/
 
 # debug
 *.log*

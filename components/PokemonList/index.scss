@@ -1,4 +1,4 @@
-.resultsList {
+.list {
   padding: 0;
   display: grid;
   grid-template: auto/ 1fr;
@@ -7,8 +7,11 @@
   @include respond($TABLET) { grid-template-columns: repeat(2, 1fr); }
   @include respond($LAPTOP) { grid-template-columns: repeat(3, 1fr); }
   @include respond($DESKTOP) { grid-template-columns: repeat(4, 1fr); }
-}
 
-.result {
-  width: 100%;
+  > li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Header from 'COMPONENTS/Header';
 import Footer from 'COMPONENTS/Footer';
-import ResultsList from 'COMPONENTS/ResultsList';
+import PokemonList from 'COMPONENTS/PokemonList';
+import FavoritesList from 'COMPONENTS/FavoritesList';
 import Pagination from 'COMPONENTS/Pagination';
 import css from 'BASE/scss/base.scss';
 import { getPokemon } from 'ACTIONS';
@@ -14,11 +15,16 @@ const Home = ({
   previous,
 }) => {
   const [currentPokemon, setCurrentPokemon] = useState(pokemon);
-  const [currentNext, setCurrentNext] = useState(next);
   const [currentPrevious, setCurrentPrevious] = useState(previous);
+  const [currentNext, setCurrentNext] = useState(next);
+  const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
+  /**
+   * Request paginated pokemon and update state.
+   * @param {String} link - Link provided by the PokeApi
+   */
   const handlePagination = async (link) => {
     try {
       setLoading(true);
@@ -28,17 +34,33 @@ const Home = ({
       setCurrentPrevious(res.previous);
       setLoading(false);
     } catch (e) {
-      setError(e)
+      setError(e);
       setLoading(false);
     }
   };
 
+  const handleAddToFavorites = (favorite) => {
+    setFavorites([...favorites, favorite]);
+  };
+
+  const handleRemoveFromFavorites = (favorite) => {
+    const newFavorites = favorites.filter((fave) => fave.name !== favorite.name);
+    setFavorites(newFavorites);
+  };
+
+  /*
+   * Pokemon List or Loading state
+   */
   let content = (
     <>
       <h4>There are {count} Pokemon!</h4>
-      {error && (<div className="alert alert-danger" role="alert">{error.message}</div>)}
 
-      <ResultsList pokemon={currentPokemon} />
+      <PokemonList
+        pokemon={currentPokemon}
+        favorites={favorites}
+        addFavorite={handleAddToFavorites}
+        unFavorite={handleRemoveFromFavorites}
+      />
 
       <Pagination
         handlePagination={handlePagination}
@@ -50,8 +72,10 @@ const Home = ({
 
   if (loading) {
     content = (
-      <div className="spinner-border" role="status">
-        <span className="sr-only">Loading...</span>
+      <div className={css.centerContent}>
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
       </div>
     );
   }
@@ -60,7 +84,19 @@ const Home = ({
     <>
       <Header />
       <div className={`container mt-4 ${css.pageBody}`}>
-        {content}
+        {/* Show error message */}
+        {error && (<div className="alert alert-danger" role="alert">{error.message}</div>)}
+        <div className="row">
+          <div className="col-lg-3">
+            <FavoritesList
+              favorites={favorites}
+              unFavorite={handleRemoveFromFavorites}
+            />
+          </div>
+          <div className="col-lg">
+            {content}
+          </div>
+        </div>
       </div>
       <Footer />
     </>

@@ -27,3 +27,4 @@
 ### Notes
 
 * All components and code was developed by Ricardo Fearing unless otherwise noted.
+    * Accordion component was built by Ricardo but utilized from a previous project
