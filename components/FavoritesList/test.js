@@ -4,8 +4,9 @@ import { render } from '@testing-library/react';
 import FavoritesList, { noFavoritesText } from '.';
 
 const exampleFavorites = [
-  { name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon/1/' },
-  { name: 'ivysaur', url: 'https://pokeapi.co/api/v2/pokemon/2/' },
+  { name: 'charizard', url: '.../pokemon/5/' },
+  { name: 'bulbasaur', url: '.../pokemon/1/' },
+  { name: 'ivysaur', url: '.../pokemon/2/' },
 ];
 
 test('FavoritesList renders correct text if no favorites given', () => {
@@ -18,8 +19,8 @@ test('FavoritesList renders correct text if no favorites given', () => {
   expect(getByText(noFavoritesText)).toBeInTheDocument();
 });
 
-test('FavoritesList renders Pokemon when passed in an array of favorites', () => {
-  const { getByText } = render(
+test('FavoritesList renders Pokemon in alphabetical order', () => {
+  const { getByText, container } = render(
     <FavoritesList
       favorites={exampleFavorites}
       unFavorite={() => null}
@@ -27,4 +28,5 @@ test('FavoritesList renders Pokemon when passed in an array of favorites', () =>
   );
 
   expect(getByText(exampleFavorites[1].name)).toBeTruthy();
+  expect(container.querySelector('ul li:first-child h4').textContent).toContain('bulbasaur');
 });

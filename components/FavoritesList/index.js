@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Pokemon from 'COMPONENTS/Pokemon';
 import css from './style.scss';
@@ -12,7 +12,14 @@ const FavoritesList = ({
   favorites,
   unFavorite,
 }) => {
-  let faveList = favorites.map((poke) => (
+  const [isAsc, setIsAsc] = useState(true)
+  const sortedFavorites = isAsc
+    ? favorites.sort((a, b) => a.name.localeCompare(b.name))
+    : favorites.sort((a, b) => b.name.localeCompare(a.name));
+
+  const handleChangeSort = () => setIsAsc(!isAsc);
+
+  let faveList = sortedFavorites.map((poke) => (
     <Pokemon
       key={poke.name}
       pokemon={poke}
@@ -30,6 +37,19 @@ const FavoritesList = ({
   return (
     <>
       <h4 className="mb-3">Your Favorites:</h4>
+
+      <p className="clearfix">
+        Order: <b>{isAsc ? 'A-Z' : 'Z-A'}</b>
+
+        <button
+          type="button"
+          className="btn-sm btn-outline-secondary float-right"
+          onClick={handleChangeSort}
+        >
+          Change Order
+        </button>
+      </p>
+
       <ul className={css.list}>
         {faveList}
       </ul>
