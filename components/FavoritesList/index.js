@@ -12,7 +12,7 @@ const FavoritesList = ({
   favorites,
   unFavorite,
 }) => {
-  const [isAsc, setIsAsc] = useState(true)
+  const [isAsc, setIsAsc] = useState(true);
   const sortedFavorites = isAsc
     ? favorites.sort((a, b) => a.name.localeCompare(b.name))
     : favorites.sort((a, b) => b.name.localeCompare(a.name));

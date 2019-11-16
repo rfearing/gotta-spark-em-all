@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Header from 'COMPONENTS/Header';
 import Footer from 'COMPONENTS/Footer';
@@ -39,6 +39,18 @@ const Home = ({
       setLoading(false);
     }
   };
+
+  // Set initial favorites
+  // (Think of useEffect as componentDidMount so we know we're on the browser not SSR)
+  useEffect(() => {
+    const savedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    setFavorites(savedFavorites);
+  }, []);
+
+  // Save to localStorage once you add or remove a favorite.
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
 
   const handleAddToFavorites = (favorite) => {
     setFavorites([...favorites, favorite]);
