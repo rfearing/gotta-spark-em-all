@@ -21,6 +21,7 @@ const FavoritesList = ({
 
   let faveList = sortedFavorites.map((poke) => (
     <Pokemon
+      id={`fave-${poke.name}`}
       key={poke.name}
       pokemon={poke}
       className={css.favorite}

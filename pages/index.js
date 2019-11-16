@@ -5,7 +5,6 @@ import Footer from 'COMPONENTS/Footer';
 import PokemonList from 'COMPONENTS/PokemonList';
 import FavoritesList from 'COMPONENTS/FavoritesList';
 import Pagination from 'COMPONENTS/Pagination';
-import 'BASE/scss/base.scss';
 import { getPokemon } from 'ACTIONS';
 import css from './home.scss';
 

@@ -22,6 +22,7 @@ const PokemonList = ({
     const isFavorited = favorites.find((f) => f.name === p.name);
     return (
       <Pokemon
+        id={`list-${p.name}`}
         key={p.name}
         pokemon={p}
         isFavorited={Boolean(isFavorited)}

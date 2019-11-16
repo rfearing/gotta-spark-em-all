@@ -6,6 +6,7 @@ import cx from 'classnames';
 import css from './style.scss';
 
 const Pokemon = ({
+  id,
   pokemon,
   className,
   isFavorited,
@@ -13,12 +14,12 @@ const Pokemon = ({
   unFavorite,
 }) => {
   const { name, url } = pokemon;
-  const id = getIdFromUrl(url);
-  const imageUrl = getPokeImage(id);
+  const pokeId = getIdFromUrl(url);
+  const imageUrl = getPokeImage(pokeId);
   const buttonClass = cx('mx-2 btn btn-outline-secondary', { [css.favorite]: isFavorited });
 
   return (
-    <li className={`list-group-item ${className}`}>
+    <li id={id} className={`list-group-item ${className}`}>
       <h4>{name}</h4>
       <img
         alt={`Small icon for ${name}`}
@@ -52,6 +53,7 @@ const Pokemon = ({
 };
 
 Pokemon.propTypes = {
+  id: PropTypes.string.isRequired,
   isFavorited: PropTypes.bool,
   className: PropTypes.string,
   addFavorite: PropTypes.func,
