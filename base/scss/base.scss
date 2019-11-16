@@ -27,23 +27,4 @@
   textarea { color: $text_color; }
 
   a { color: $link_color }
-
-}
-
-.pageHeader,
-.pageFooter {
-  flex-shrink: 0;
-}
-
-.pageBody {
-  flex-grow: 1;
-}
-
-.centerContent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  height: 100vh;
 }

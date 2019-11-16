@@ -1,4 +1,5 @@
-import css from 'BASE/scss/base.scss';
+import React from 'react';
+import css from './style.scss';
 
 const currentYear = new Date().getFullYear();
 

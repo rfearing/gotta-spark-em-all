@@ -1,6 +1,9 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import Pokemon from 'COMPONENTS/Pokemon';
-import css from './index.scss';
+import css from './style.scss';
+
+export const noFavoritesText = 'You haven\'t added any favorites yet';
 
 /**
  * Map over an array of pokemon. If no pokemon are found, return text.
@@ -21,12 +24,12 @@ const FavoritesList = ({
   ));
 
   if (!favorites || favorites.length === 0) {
-    faveList = <p>You haven&apos;t added any favorites yet</p>;
+    faveList = <p>{noFavoritesText}</p>;
   }
 
   return (
     <>
-      <h4>Your Favorites:</h4>
+      <h4 className="mb-3">Your Favorites:</h4>
       <ul className={css.list}>
         {faveList}
       </ul>

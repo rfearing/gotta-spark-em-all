@@ -1,4 +1,4 @@
-import css from 'BASE/scss/base.scss';
+import css from './style.scss';
 
 /**
  * The Header for the default Layout

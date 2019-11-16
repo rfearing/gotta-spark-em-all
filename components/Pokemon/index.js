@@ -1,8 +1,9 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { getIdFromUrl, getPokeImage } from 'BASE/utils';
 import { FaStar, FaRegStar } from 'react-icons/fa';
 import cx from 'classnames';
-import css from './index.scss';
+import css from './style.scss';
 
 const Pokemon = ({
   pokemon,
@@ -31,6 +32,7 @@ const Pokemon = ({
               className={buttonClass}
               onClick={() => unFavorite(pokemon)}
             >
+              <p hidden>Remove {name} from favorites</p>
               <FaStar />
             </button>
           ) : (
@@ -39,6 +41,7 @@ const Pokemon = ({
               className={buttonClass}
               onClick={() => addFavorite(pokemon)}
             >
+              <p hidden>Add {name} to favorites</p>
               <FaRegStar />
             </button>
           )

@@ -5,8 +5,9 @@ import Footer from 'COMPONENTS/Footer';
 import PokemonList from 'COMPONENTS/PokemonList';
 import FavoritesList from 'COMPONENTS/FavoritesList';
 import Pagination from 'COMPONENTS/Pagination';
-import css from 'BASE/scss/base.scss';
+import 'BASE/scss/base.scss';
 import { getPokemon } from 'ACTIONS';
+import css from './home.scss';
 
 const Home = ({
   pokemon,
@@ -53,7 +54,7 @@ const Home = ({
    */
   let content = (
     <>
-      <h4>There are {count} Pokemon!</h4>
+      <h4 className="mb-3">There are {count} Pokemon!</h4>
 
       <PokemonList
         pokemon={currentPokemon}

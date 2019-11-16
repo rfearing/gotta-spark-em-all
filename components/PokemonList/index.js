@@ -1,6 +1,9 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import Pokemon from 'COMPONENTS/Pokemon';
-import css from './index.scss';
+import css from './style.scss';
+
+export const noPokemonText = 'No Pokemon';
 
 /**
  * Map over an array of pokemon. If no pokemon are found, return text.
@@ -12,7 +15,7 @@ const PokemonList = ({
   unFavorite,
 }) => {
   if (!pokemon || pokemon.length === 0) {
-    return <h4>No Pokemon</h4>;
+    return <h4>{noPokemonText}</h4>;
   }
 
   const pokeList = pokemon.map((p) => {

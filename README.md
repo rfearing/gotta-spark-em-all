@@ -7,6 +7,7 @@
 * [CSS Modules](https://github.com/css-modules/css-modules) - Scoped CSS (as opposed to using BEM or Styled JSX)
 * [Classnames](https://github.com/JedWatson/classnames) - A simple javascript utility for conditionally joining classNames together
 * [React Icons](https://github.com/react-icons/react-icons) - SVG Icons
+* [Jest](https://jestjs.io/) Testing with [React Testing Library](https://github.com/testing-library/react-testing-library)
 
 ### Coding Decisions Made
 
@@ -14,6 +15,7 @@
 * Utilize CSS Modules with SASS implemtation
 
 ### Building the App
+
 `npm install`
 
 ### Running the App:
@@ -24,7 +26,10 @@
 
 `npm production` Runs the built app in production mode. (Usually is `npm start`)
 
+### Testing the app
+
+`npm test` Runs Jest tests.
+
 ### Notes
 
 * All components and code was developed by Ricardo Fearing unless otherwise noted.
-    * Accordion component was built by Ricardo but utilized from a previous project
