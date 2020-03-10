@@ -2,7 +2,7 @@
  *
  * @param {Int} id - The ID of the pokemon
  */
-export const getPokeImage = id => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+export const getPokeImage = (id) => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
 
 /**
  * Get Pokemon ID from the URL
@@ -10,6 +10,6 @@ export const getPokeImage = id => `https://raw.githubusercontent.com/PokeAPI/spr
  */
 export const getIdFromUrl = (url) => {
   const urlArray = url.trim().replace(/\/+$/, '').split('/');
-  const id = urlArray.slice(- 1);
+  const id = urlArray.slice(-1);
   return id;
 };

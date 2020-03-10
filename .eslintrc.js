@@ -1,7 +1,7 @@
 const aliases = require('./aliases');
 
 module.exports = {
-  extends: 'airbnb',
+  extends: ['sparkbox'],
   env: {
     node: true,
     es6: true,
