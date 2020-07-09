@@ -2,6 +2,7 @@
 const withSass = require('@zeit/next-sass');
 const withCSS = require('@zeit/next-css');
 const aliases = require('./aliases');
+require('regenerator-runtime');
 
 module.exports = withCSS(withSass({
   cssModules: true,
